@@ -39,3 +39,15 @@ class ProtectionMixin:
         except ProtectedError:
             messages.error(request, self.protected_message)
             return redirect(self.protected_url)
+
+
+class AuthorMixin(UserPassesTestMixin):
+    redirect_url = None
+    check_author_error_message = None
+
+    def is_author(self):
+        return self.get_object().author == self.request.user
+
+    def no_permission(self):
+        messages.error(self.request, self.check_author_error_message)
+        return redirect(self.redirect_url)
