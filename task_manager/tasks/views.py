@@ -7,6 +7,10 @@ from django.views.generic import (CreateView, UpdateView,
 from .forms import TasksCreateForm
 from .models import Tasks
 from task_manager.mixins import (LoginUserMixin, AuthorMixin)
+from django_filters import (FilterSet, ModelChoiceFilter, BooleanFilter)
+from django_filters.views import FilterView
+from task_manager.labels.models import Labels
+from django import forms
 
 
 class CreateTasksView(CreateView, SuccessMessageMixin, LoginUserMixin):
@@ -46,7 +50,28 @@ class DeleteTasksView(DeleteView, SuccessMessageMixin,
         'button_text': gettext_lazy('Yes, delete!')}
 
 
-class ListTasksView(LoginUserMixin):
+class FilterTasks(FilterSet):
+    labels = ModelChoiceFilter(queryset=Labels.objects.all(),
+                               label=gettext_lazy('Label'), )
+    owned_tasks = BooleanFilter(label=gettext_lazy('Only my tasks'),
+                                widget=forms.CheckboxInput,
+                                method='task_owner',)
+
+    def task_owner(self, queryset, value):
+        if value:
+            return queryset.filter(author=self.request.user)
+        return queryset
+
+    class Meta:
+        model = Tasks
+        fields = ('status', 'executor', 'label', 'owned_tasks')
+        labels = {'status': gettext_lazy('status'),
+                  'executor': gettext_lazy('executor'),
+                  'label': gettext_lazy('label'),
+                  'owned_tasks': gettext_lazy('owned tasks'), }
+
+
+class ListTasksView(FilterView, LoginUserMixin):
     model = Tasks
     template_name = 'tasks/list.html'
     object_name = 'tasks'
