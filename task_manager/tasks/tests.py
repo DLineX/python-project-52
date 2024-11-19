@@ -24,7 +24,7 @@ class TestTasks(TestCase):
                                         status=self.status, )
         self.task.save()
 
-    def delete_status(self):
+    def delete_task(self):
         self.task.delete()
         self.user_client.delete()
         self.status.delete()
