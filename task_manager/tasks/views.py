@@ -51,8 +51,8 @@ class DeleteTasksView(DeleteView, SuccessMessageMixin,
 
 
 class FilterTasks(FilterSet):
-    labels = ModelChoiceFilter(queryset=Labels.objects.all(),
-                               label=gettext_lazy('Label'), )
+    label = ModelChoiceFilter(queryset=Labels.objects.all(),
+                              label=gettext_lazy('Label'), )
     owned_tasks = BooleanFilter(label=gettext_lazy('Only my tasks'),
                                 widget=forms.CheckboxInput,
                                 method='task_owner',)
