@@ -10,4 +10,4 @@ class LabelsForm(forms.ModelForm):
 
     class Meta:
         model = Labels
-        fields =('name',)
+        fields = ('name',)
