@@ -1,5 +1,6 @@
 install:
 	poetry install
+	poetry lock --no-update
 migrate:
 	poetry run python manage.py makemigrations
 build:
