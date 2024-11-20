@@ -20,7 +20,7 @@ class Tasks(models.Model):
         User, blank=True, on_delete=models.PROTECT,
         related_name='executor', verbose_name=gettext('executor'),)
     labels = models.ManyToManyField(
-        Labels, blank=True, related_name='labels', through='LabelTask',
+        Labels, blank=True, related_name='labels', through='TaskLabels',
         verbose_name=gettext('labels'),)
 
     def __str__(self):
@@ -29,4 +29,4 @@ class Tasks(models.Model):
 
 class TaskLabels(models.Model):
     tasks = models.ForeignKey(Tasks, on_delete=models.CASCADE)
-    labels = models.ForeignKey(Labels, on_delete=models.RESTRICT)
+    label = models.ForeignKey(Labels, on_delete=models.RESTRICT)
