@@ -2,3 +2,8 @@ venv
 .idea
 .env
 dist
+task_manager.__pycache__
+task_manager.users.__pycache__
+task_manager.statuses.__pycache__
+task_manager.tasks.__pycache__
+task_manager.labels.__pycache__
