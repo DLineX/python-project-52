@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <h1 class="my-4 text-left">{% trans "Task Manager" %}</h1>
+    <form class="text-left" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_text Button_type="submit" button_class="btn-primary" %}
+    </form>
+    {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% bootstrap_messages %}
+{% block title %}
+    {% trans "Task Manager" %}
+{% endblock %}
+{% block content %}
+<div class="card-body p-5 bg-light">
+    <h1 class="my-4 display-4">{% trans "Task Manager" %}</h1>
+    <p class="lead">{% trans "A simple and flexible task management web application" %}</p>
+    <hr>
+    <a class="btn btn-primary btn-lg" href="{% url 'login' %}">{% trans "Start" %}</a>
+</div>
+{% endblock %}
