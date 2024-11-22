@@ -26,5 +26,4 @@ class LogoutUserView(LogoutView):
 
 class ListView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'list.html', context={
-            'messages': messages.get_messages(request), })
+        return render(request, 'list.html')
