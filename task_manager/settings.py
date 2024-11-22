@@ -31,7 +31,6 @@ ALLOWED_HOSTS = [
     "webserver", 'python-project-52-l2s1.onrender.com', "0.0.0.0", "127.0.0.1", "localhost"
 ]
 
-PORT = os.getenv('PORT')
 
 # Application definition
 
