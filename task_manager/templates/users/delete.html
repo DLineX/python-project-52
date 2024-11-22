@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% block content %}
+<h1 class="my-4">{% trans "Task Manager" %}</h1>
+<form method="post">
+    <p>{{question}}</p>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% bootstrap_button button_text Button_type="submit" button_class="btn btn-primary" %}
+            </div>
+            <div class="col">
+                <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-danger">{% trans "No" %}</a>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
