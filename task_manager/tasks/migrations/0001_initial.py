@@ -16,17 +16,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Tasks',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=120, unique=True, verbose_name='имя')),
-                ('description', models.TextField(blank=True, verbose_name='Description')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # noqa: E501
+                ('name', models.CharField(max_length=120, unique=True, verbose_name='имя')),  # noqa: E501
+                ('description', models.TextField(blank=True, verbose_name='Description')),  # noqa: E501
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
         ),
         migrations.CreateModel(
             name='TaskLabels',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('label', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='labels.labels')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # noqa: E501
+                ('label', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='labels.labels')),  # noqa: E501
             ],
         ),
     ]

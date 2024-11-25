@@ -14,9 +14,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Labels',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=120, unique=True, verbose_name='Name')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Date of creation')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # noqa: E501
+                ('name', models.CharField(max_length=120, unique=True, verbose_name='Name')),  # noqa: E501
+                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Date of creation')),  # noqa: E501
             ],
         ),
     ]
