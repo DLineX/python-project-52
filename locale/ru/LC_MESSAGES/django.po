@@ -223,7 +223,7 @@ msgstr "Выйти"
 
 #: .\task_manager\templates\index.html:45
 msgid "Log In"
-msgstr "Войти"
+msgstr "Вход"
 
 #: .\task_manager\templates\index.html:48
 msgid "Sign Up"
