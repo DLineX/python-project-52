@@ -19,6 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
+          poetry lock --no-update
           make install
           make migrate
       - name: Run linter
