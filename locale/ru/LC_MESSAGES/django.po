@@ -219,15 +219,15 @@ msgstr "Пользователи"
 
 #: .\task_manager\templates\index.html:38
 msgid "Log Out"
-msgstr "Выйти"
+msgstr "Выход"
 
 #: .\task_manager\templates\index.html:45
 msgid "Log In"
-msgstr "Войти"
+msgstr "Вход"
 
 #: .\task_manager\templates\index.html:48
 msgid "Sign Up"
-msgstr "Зарегистрироваться"
+msgstr "Регистрация"
 
 #: .\task_manager\templates\labels\delete.html:16
 #: .\task_manager\templates\statuses\delete.html:16
@@ -266,7 +266,7 @@ msgstr "Простое и гибкое веб-приложение для мен
 
 #: .\task_manager\templates\list.html:13
 msgid "Start"
-msgstr "Вход"
+msgstr "Начать"
 
 #: .\task_manager\templates\statuses\list.html:8
 msgid "Create Status"
