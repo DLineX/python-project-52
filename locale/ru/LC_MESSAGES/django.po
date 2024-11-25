@@ -366,7 +366,7 @@ msgstr "Авторизация"
 
 #: .\task_manager\views.py:17
 msgid "Enter"
-msgstr "Вход"
+msgstr "Войти"
 
 #: .\task_manager\views.py:23
 msgid "You are logged out"
