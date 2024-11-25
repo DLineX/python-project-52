@@ -358,7 +358,7 @@ msgstr "Вы уверены что хотите удалить этого пол
 
 #: .\task_manager\views.py:14
 msgid "You are logged in"
-msgstr "Вы вошли"
+msgstr "Вы залогинены"
 
 #: .\task_manager\views.py:16
 msgid "Authorisation"
@@ -370,4 +370,4 @@ msgstr "Войти"
 
 #: .\task_manager\views.py:23
 msgid "You are logged out"
-msgstr "Вы вышли"
+msgstr "Вы разлогинены"
