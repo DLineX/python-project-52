@@ -223,7 +223,7 @@ msgstr "Выйти"
 
 #: .\task_manager\templates\index.html:45
 msgid "Log In"
-msgstr "Вход"
+msgstr "Войти"
 
 #: .\task_manager\templates\index.html:48
 msgid "Sign Up"
@@ -266,7 +266,7 @@ msgstr "Простое и гибкое веб-приложение для мен
 
 #: .\task_manager\templates\list.html:13
 msgid "Start"
-msgstr "Начать"
+msgstr "Вход"
 
 #: .\task_manager\templates\statuses\list.html:8
 msgid "Create Status"
