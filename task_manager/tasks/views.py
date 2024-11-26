@@ -10,6 +10,8 @@ from task_manager.mixins import (LoginUserMixin, AuthorMixin)
 from django_filters import (FilterSet, ModelChoiceFilter, BooleanFilter)
 from django_filters.views import FilterView
 from task_manager.labels.models import Labels
+from task_manager.statuses.models import Status
+from task_manager.users.models import User
 from django import forms
 
 
@@ -51,22 +53,24 @@ class DeleteTasksView(LoginUserMixin, SuccessMessageMixin,
 
 
 class FilterTasks(FilterSet):
+    status = ModelChoiceFilter(queryset=Status.objects.all(),
+                               label=gettext_lazy('Status'), )
     labels = ModelChoiceFilter(queryset=Labels.objects.all(),
                                label=gettext_lazy('Label'), )
+    executor = ModelChoiceFilter(queryset=User.objects.all(),
+                                 label=gettext_lazy('Executor'), )
     owned_tasks = BooleanFilter(label=gettext_lazy('Only my tasks'),
                                 widget=forms.CheckboxInput,
                                 method='task_owner',)
 
-    def task_owner(self, queryset, value):
+    def task_owner(self, queryset, name, value):
         if value:
-            return queryset.filter(author=self.request.user)
+            queryset = queryset.filter(author=self.request.user)
         return queryset
 
     class Meta:
         model = Tasks
-        fields = ('status', 'executor')
-        labels = {'status': gettext_lazy('status'),
-                  'executor': gettext_lazy('executor'), }
+        fields = ['status', 'executor', 'label', 'owned_tasks']
 
 
 class ListTasksView(LoginUserMixin, FilterView):
