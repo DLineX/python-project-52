@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 22:14+0300\n"
+"POT-Creation-Date: 2024-11-27 00:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,7 +215,6 @@ msgstr "Менеджер задач"
 
 #: .\task_manager\templates\labels\delete.html:16
 #: .\task_manager\templates\statuses\delete.html:16
-#: .\task_manager\templates\tasks\delete.html:16
 #: .\task_manager\templates\users\delete.html:16
 msgid "No"
 msgstr "Нет"
@@ -335,7 +334,7 @@ msgstr "Изменение пользователя"
 
 #: .\task_manager\users\views.py:39
 msgid "You can't delete other users"
-msgstr "Вы не можете удалять других пользователей"
+msgstr "У вас нет прав для изменения"
 
 #: .\task_manager\users\views.py:42
 msgid "User can't be deleted, because he have tasks"
