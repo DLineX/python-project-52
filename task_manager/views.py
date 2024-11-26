@@ -17,10 +17,11 @@ class LoginUserView(SuccessMessageMixin, LoginView):
                      'button_text': gettext_lazy('Enter'), }
 
 
-class LogoutUserView(LogoutView):
+class LogoutUserView(SuccessMessageMixin, LogoutView):
+    next_page = reverse_lazy('list')
 
     def dispatch(self, request, *args, **kwargs):
-        messages.info(request, gettext_lazy('You are logged out'))
+        messages.add_message(request, messages.INFO, gettext_lazy('You are logged out'))  # noqa: E501
         return super().dispatch(request, *args, **kwargs)
 
 
