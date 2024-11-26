@@ -44,5 +44,5 @@ class DeleteLabelsView(SuccessMessageMixin, LoginUserMixin,
 class ListLabelsView(ListView):
     model = Labels
     template_name = 'labels/list.html'
-    object_name = 'labels'
+    context_object_name = 'labels'
     extra_context = {'title': gettext_lazy('Labels')}

@@ -74,7 +74,7 @@ class FilterTasks(FilterSet):
 class ListTasksView(LoginUserMixin, FilterView):
     model = Tasks
     template_name = 'tasks/list.html'
-    object_name = 'tasks'
+    context_object_name = 'tasks'
     extra_context = {'title': gettext_lazy('Tasks'),
                      'button_text': gettext_lazy('Show'), }
 
@@ -82,5 +82,5 @@ class ListTasksView(LoginUserMixin, FilterView):
 class DetailTasksView(LoginUserMixin, DetailView):
     model = Tasks
     template_name = 'tasks/show.html'
-    object_name = 'task'
+    context_object_name = 'task'
     extra_context = {'title': gettext_lazy('Task details')}

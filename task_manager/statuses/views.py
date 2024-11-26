@@ -43,7 +43,8 @@ class DeleteStatusView(
         'button_text': gettext_lazy('Yes, delete!'), }
 
 
-class ListStatusView(ListView):
+class ListStatusView(LoginUserMixin, ListView):
     model = Status
     template_name = 'statuses/list.html'
+    context_object_name = 'statuses'
     extra_context = {'title': gettext_lazy('Statuses')}
