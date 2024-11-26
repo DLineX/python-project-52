@@ -49,8 +49,9 @@ class AuthorMixin(UserPassesTestMixin):
     redirect_url = None
     check_author_error_message = None
 
-    def dispatch(self, request, *args, **kwargs):
-        if self.get_object().author.id != request.user.id:
-            messages.error(self.request, self.check_author_error_message)
-            return redirect(self.redirect_url)
-        return super().dispatch(request, *args, **kwargs)
+    def test_func(self):
+        return self.get_object().author == self.request.user
+
+    def handle_no_permission(self):
+        messages.error(self.request, self.check_author_error_message)
+        return redirect(self.redirect_url)
