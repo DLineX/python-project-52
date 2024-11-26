@@ -40,7 +40,7 @@ class DeleteUserView(SuccessMessageMixin, LoginUserMixin,
     permission_url = reverse_lazy('users_list')
     protected_message = gettext_lazy(
         'User can\'t be deleted, because he have tasks')
-    protected_url = reverse_lazy('users')
+    protected_url = reverse_lazy('users_list')
     success_message = gettext_lazy('User deleted successfully!')
     success_url = reverse_lazy('users_list')
     extra_context = {
