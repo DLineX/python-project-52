@@ -7,3 +7,7 @@ task_manager/users/__pycache__
 task_manager/statuses/__pycache__
 task_manager/tasks/__pycache__
 task_manager/labels/__pycache__
+task_manager/users/migrations/__pycache__
+task_manager/statuses/migrations/__pycache__
+task_manager/tasks/migrations/__pycache__
+task_manager/labels/migrations/__pycache__
