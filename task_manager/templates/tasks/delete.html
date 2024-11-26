@@ -6,16 +6,6 @@
 <form method="post">
     <p>{{question}}</p>
     {% csrf_token %}
-    {% bootstrap_form form %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                {% bootstrap_button button_text Button_type="submit" button_class="btn btn-primary" %}
-            </div>
-            <div class="col">
-                <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-danger">{% trans "No" %}</a>
-            </div>
-        </div>
-    </div>
+    {% bootstrap_button button_text button_type="submit" button_class="btn btn-danger delete-button" %}
 </form>
 {% endblock %}
