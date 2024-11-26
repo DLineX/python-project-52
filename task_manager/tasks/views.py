@@ -54,14 +54,17 @@ class DeleteTasksView(LoginUserMixin, SuccessMessageMixin,
 
 class FilterTasks(FilterSet):
     status = ModelChoiceFilter(queryset=Status.objects.all(),
-                               label=gettext_lazy('Status'), )
+                               label=gettext_lazy('Status'),
+                               field_name='status', )
     label = ModelChoiceFilter(queryset=Labels.objects.all(),
-                              label=gettext_lazy('Label'), )
+                              label=gettext_lazy('Label'),
+                              field_name='labels', )
     executor = ModelChoiceFilter(queryset=User.objects.all(),
-                                 label=gettext_lazy('Executor'), )
-    owned_tasks = BooleanFilter(label=gettext_lazy('Only my tasks'),
+                                 label=gettext_lazy('Executor'),
+                                 field_name='executor', )
+    owned_tasks = BooleanFilter(method='task_owner',
                                 widget=forms.CheckboxInput,
-                                method='task_owner',)
+                                label=gettext_lazy('Only my tasks'),)
 
     def task_owner(self, queryset, name, value):
         if value:

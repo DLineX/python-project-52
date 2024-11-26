@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 21:45+0300\n"
+"POT-Creation-Date: 2024-11-26 22:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -176,29 +176,29 @@ msgstr "Вы уверены что хотите удалить эту задач
 msgid "Status"
 msgstr "Статус"
 
-#: .\task_manager\tasks\views.py:59
+#: .\task_manager\tasks\views.py:60
 msgid "Label"
 msgstr "Метка"
 
-#: .\task_manager\tasks\views.py:61 .\task_manager\templates\tasks\list.html:28
+#: .\task_manager\tasks\views.py:63 .\task_manager\templates\tasks\list.html:28
 #: .\task_manager\templates\tasks\show.html:27
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: .\task_manager\tasks\views.py:62
+#: .\task_manager\tasks\views.py:67
 msgid "Only my tasks"
 msgstr "Только свои задачи"
 
-#: .\task_manager\tasks\views.py:80 .\task_manager\templates\nav.html:20
+#: .\task_manager\tasks\views.py:83 .\task_manager\templates\nav.html:20
 #: .\task_manager\templates\tasks\list.html:10
 msgid "Tasks"
 msgstr "Задачи"
 
-#: .\task_manager\tasks\views.py:81
+#: .\task_manager\tasks\views.py:84
 msgid "Show"
 msgstr "Показать"
 
-#: .\task_manager\tasks\views.py:88
+#: .\task_manager\tasks\views.py:91
 msgid "Task details"
 msgstr "Просмотр задачи"
 
@@ -367,7 +367,7 @@ msgstr "Вы разлогинены"
 #~ msgstr "Метка"
 
 #~ msgid "owned tasks"
-#~ msgstr "Собственные задачи"
+#~ msgstr "только свои задачи"
 
 #~ msgid "Log Out"
 #~ msgstr "Выход"
