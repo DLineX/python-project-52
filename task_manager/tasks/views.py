@@ -6,7 +6,7 @@ from django.views.generic import (CreateView, UpdateView,
                                   DeleteView, DetailView)
 from .forms import TasksCreateForm
 from .models import Tasks
-from task_manager.mixins import (LoginUserMixin, AuthorizationMixin)
+from task_manager.mixins import (LoginUserMixin, AuthorMixin)
 from django_filters import (FilterSet, ModelChoiceFilter, BooleanFilter)
 from django_filters.views import FilterView
 from task_manager.labels.models import Labels
@@ -39,14 +39,14 @@ class UpdateTasksView(LoginUserMixin, SuccessMessageMixin, UpdateView):
 
 
 class DeleteTasksView(LoginUserMixin, SuccessMessageMixin,
-                      AuthorizationMixin, DeleteView):
+                      AuthorMixin, DeleteView):
     model = Tasks
     template_name = 'tasks/delete.html'
     success_message = gettext_lazy('Task deleted successfully!')
     success_url = reverse_lazy('tasks_list')
-    permission_message = gettext_lazy(
+    check_author_error_message = gettext_lazy(
         'You can\'t delete this task, because only the author of the task can delete it')  # noqa: E501
-    permission_url = reverse_lazy('tasks_list')
+    redirect_url = reverse_lazy('tasks_list')
     extra_context = {'question': gettext_lazy(
         'Are you sure you want to delete this task?'),
         'button_text': gettext_lazy('Yes, delete!')}
