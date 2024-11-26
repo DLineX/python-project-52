@@ -28,8 +28,8 @@ class UpdateLabelsView(SuccessMessageMixin, LoginUserMixin, UpdateView):
                      'button_text': gettext_lazy('Submit changes'), }
 
 
-class DeleteLabelsView(SuccessMessageMixin, LoginUserMixin,
-                       ProtectionMixin, DeleteView):
+class DeleteLabelsView(SuccessMessageMixin, LoginUserMixin, ProtectionMixin,
+                       DeleteView):
     model = Labels
     template_name = 'labels/delete.html'
     success_message = gettext_lazy('Label deleted successfully!')
