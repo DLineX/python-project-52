@@ -98,7 +98,7 @@ msgstr "Создать статус"
 
 #: .\task_manager\statuses\views.py:24
 msgid "Status updated successfully!"
-msgstr "Статус успешно изменён"
+msgstr "Статус успешно изменен"
 
 #: .\task_manager\statuses\views.py:26
 msgid "Update status"
@@ -106,7 +106,7 @@ msgstr "Изменение статуса"
 
 #: .\task_manager\statuses\views.py:35
 msgid "Status deleted successfully!"
-msgstr "Статус успешно удалён"
+msgstr "Статус успешно удален"
 
 #: .\task_manager\statuses\views.py:38
 msgid "You can't delete this status, because it is used in tasks"
@@ -346,11 +346,11 @@ msgstr "Вы не можете удалять других пользовате�
 
 #: .\task_manager\users\views.py:42
 msgid "User can't be deleted, because he have tasks"
-msgstr "Пользователь не может быть удалён, потому что имеет задачи"
+msgstr "Пользователь не может быть удален, потому что имеет задачи"
 
 #: .\task_manager\users\views.py:44
 msgid "User deleted successfully!"
-msgstr "Пользователь успешно удалён"
+msgstr "Пользователь успешно удален"
 
 #: .\task_manager\users\views.py:48
 msgid "Are you sure you want to delete this user?"
