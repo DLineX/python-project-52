@@ -17,8 +17,8 @@ class CreateUserView(SuccessMessageMixin, CreateView):
                      'button_text': gettext_lazy('Register'), }
 
 
-class UpdateUserView(LoginUserMixin, AuthorizationMixin,
-                     SuccessMessageMixin, UpdateView):
+class UpdateUserView(SuccessMessageMixin, LoginUserMixin,
+                     AuthorizationMixin, UpdateView):
     model = User
     form_class = UserForm
     template_name = 'form.html'
@@ -31,8 +31,8 @@ class UpdateUserView(LoginUserMixin, AuthorizationMixin,
                      'button_text': gettext_lazy('Submit changes'), }
 
 
-class DeleteUserView(LoginUserMixin, AuthorizationMixin,
-                     SuccessMessageMixin, DeleteView):
+class DeleteUserView(SuccessMessageMixin, LoginUserMixin,
+                     AuthorizationMixin, DeleteView):
     model = User
     template_name = 'users/delete.html'
     no_login_message = gettext_lazy('You are not logged in yet! Please log in')
