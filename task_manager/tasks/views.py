@@ -13,7 +13,7 @@ from task_manager.labels.models import Labels
 from django import forms
 
 
-class CreateTasksView(SuccessMessageMixin, LoginUserMixin, CreateView):
+class CreateTasksView(LoginUserMixin, SuccessMessageMixin, CreateView):
     form_class = TasksCreateForm
     template_name = 'form.html'
     success_message = gettext_lazy('Task created successfully!')
@@ -26,7 +26,7 @@ class CreateTasksView(SuccessMessageMixin, LoginUserMixin, CreateView):
         return super().form_valid(form)
 
 
-class UpdateTasksView(SuccessMessageMixin, LoginUserMixin, UpdateView):
+class UpdateTasksView(LoginUserMixin, SuccessMessageMixin, UpdateView):
     model = Tasks
     form_class = TasksCreateForm
     template_name = 'form.html'
@@ -36,7 +36,7 @@ class UpdateTasksView(SuccessMessageMixin, LoginUserMixin, UpdateView):
                      'button_text': gettext_lazy('Submit changes'), }
 
 
-class DeleteTasksView(SuccessMessageMixin, LoginUserMixin,
+class DeleteTasksView(LoginUserMixin, SuccessMessageMixin,
                       AuthorMixin, DeleteView):
     model = Tasks
     template_name = 'tasks/delete.html'
@@ -51,8 +51,8 @@ class DeleteTasksView(SuccessMessageMixin, LoginUserMixin,
 
 
 class FilterTasks(FilterSet):
-    label = ModelChoiceFilter(queryset=Labels.objects.all(),
-                              label=gettext_lazy('Label'), )
+    labels = ModelChoiceFilter(queryset=Labels.objects.all(),
+                               label=gettext_lazy('Label'), )
     owned_tasks = BooleanFilter(label=gettext_lazy('Only my tasks'),
                                 widget=forms.CheckboxInput,
                                 method='task_owner',)
@@ -64,11 +64,9 @@ class FilterTasks(FilterSet):
 
     class Meta:
         model = Tasks
-        fields = ('status', 'executor', 'label', 'owned_tasks')
+        fields = ('status', 'executor')
         labels = {'status': gettext_lazy('status'),
-                  'executor': gettext_lazy('executor'),
-                  'label': gettext_lazy('label'),
-                  'owned_tasks': gettext_lazy('owned tasks'), }
+                  'executor': gettext_lazy('executor'), }
 
 
 class ListTasksView(LoginUserMixin, FilterView):
