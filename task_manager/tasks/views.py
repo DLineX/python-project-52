@@ -44,9 +44,9 @@ class DeleteTasksView(LoginUserMixin, SuccessMessageMixin,
     template_name = 'tasks/delete.html'
     success_message = gettext_lazy('Task deleted successfully!')
     success_url = reverse_lazy('tasks_list')
-    denied_message = gettext_lazy(
+    check_author_error_message = gettext_lazy(
         'You can\'t delete this task, because only the author of the task can delete it')  # noqa: E501
-    denied_url = reverse_lazy('tasks_list')
+    redirect_url = reverse_lazy('tasks_list')
     extra_context = {'question': gettext_lazy(
         'Are you sure you want to delete this task?'),
         'button_text': gettext_lazy('Yes, delete!')}
