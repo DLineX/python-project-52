@@ -21,6 +21,7 @@ class CreateLabelsView(SuccessMessageMixin, LoginUserMixin, CreateView):
 class UpdateLabelsView(SuccessMessageMixin, LoginUserMixin, UpdateView):
     model = Labels
     form_class = LabelsForm
+    template_name = 'form.html'
     success_message = gettext_lazy('Label updated successfully!')
     success_url = reverse_lazy('labels_list')
     extra_context = {'title': gettext_lazy('Update label'),
@@ -41,7 +42,7 @@ class DeleteLabelsView(SuccessMessageMixin, LoginUserMixin,
         'button_text': gettext_lazy('Yes, delete!'), }
 
 
-class ListLabelsView(ListView):
+class ListLabelsView(LoginUserMixin, ListView):
     model = Labels
     template_name = 'labels/list.html'
     context_object_name = 'labels'
