@@ -21,8 +21,8 @@
             <td>{{user.first_name}} {{user.last_name}}</td>
             <td>{{user.date_joined}}</td>
             <td>
-                <a class="btn btn_info btn-sm mr-2 edit-button" href="{% url 'update_user' pk=user.id %}">{% trans "Edit" %}</a>
-                <a class="btn btn-danger btn-sm delete-button" href="{% url 'delete_user' pk=user.id %}">{% trans "Delete" %}</a>
+                <a class="btn btn_info btn-sm mr-2 edit-button" href="{% url 'update_user' user.id %}">{% trans "Edit" %}</a>
+                <a class="btn btn-danger btn-sm delete-button" href="{% url 'delete_user' user.id %}">{% trans "Delete" %}</a>
             </td>
         </tr>
         {% endfor %}
