@@ -39,7 +39,7 @@
                             <div class="col"><h6>{% trans "Labels" %}</h6></div>
                             <ul>
                                 {% for label in task.labels.all %}
-                                <li>{{label}}</li>
+                                <li>{{label.name}}</li>
                                 {% endfor %}
                             </ul>
                         </div>
