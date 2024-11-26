@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy
 from django.views import View
 
 
-class LoginUserView(LoginView, SuccessMessageMixin):
+class LoginUserView(SuccessMessageMixin, LoginView):
     form_class = AuthenticationForm
     template_name = 'form.html'
     success_message = gettext_lazy('You are logged in')
