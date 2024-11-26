@@ -18,6 +18,7 @@ class LoginUserView(SuccessMessageMixin, LoginView):
 
 
 class LogoutUserView(SuccessMessageMixin, LogoutView):
+    next_page = reverse_lazy('list')
 
     def dispatch(self, request, *args, **kwargs):
         messages.info(request, gettext_lazy('You are logged out'))
