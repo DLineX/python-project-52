@@ -8,25 +8,29 @@ from django.db.models import ProtectedError
 
 
 class LoginUserMixin(LoginRequiredMixin):
-    no_login_message = gettext('You are not logged in yet! Please log in')
+    auth_messages = gettext('You are not logged in yet! Please log in')
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            messages.error(request, self.no_login_message)
+            messages.error(request, self.auth_messages)
             return redirect(reverse_lazy('login'))
         return super().dispatch(request, *args, **kwargs)
 
 
-class AuthorizationMixin(UserPassesTestMixin):
+class AuthorizationMixin(LoginRequiredMixin, UserPassesTestMixin):
+    no_login_message = None
     permission_message = None
     permission_url = None
 
-    def test(self):
+    def test_func(self):
         return self.get_object() == self.request.user
 
     def handle_no_permission(self):
-        messages.error(self.request, self.permission_message)
-        return redirect(self.permission_url)
+        if self.request.user.is_authenticated:
+            messages.error(self.request, self.permission_message)
+        else:
+            messages.error(self.request, self.no_login_message)
+        return redirect(self.success_url)
 
 
 class ProtectionMixin:
