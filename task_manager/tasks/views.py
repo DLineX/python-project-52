@@ -13,7 +13,7 @@ from task_manager.labels.models import Labels
 from django import forms
 
 
-class CreateTasksView(CreateView, SuccessMessageMixin, LoginUserMixin):
+class CreateTasksView(SuccessMessageMixin, LoginUserMixin, CreateView):
     form_class = TasksCreateForm
     template_name = 'form.html'
     success_message = gettext_lazy('Task created successfully!')
@@ -26,7 +26,7 @@ class CreateTasksView(CreateView, SuccessMessageMixin, LoginUserMixin):
         return super().form_valid(form)
 
 
-class UpdateTasksView(UpdateView, SuccessMessageMixin, LoginUserMixin):
+class UpdateTasksView(SuccessMessageMixin, LoginUserMixin, UpdateView):
     model = Tasks
     form_class = TasksCreateForm
     template_name = 'form.html'
@@ -36,8 +36,8 @@ class UpdateTasksView(UpdateView, SuccessMessageMixin, LoginUserMixin):
                      'button_text': gettext_lazy('Submit changes'), }
 
 
-class DeleteTasksView(DeleteView, SuccessMessageMixin,
-                      LoginUserMixin, AuthorMixin):
+class DeleteTasksView(SuccessMessageMixin, LoginUserMixin,
+                      AuthorMixin, DeleteView):
     model = Tasks
     template_name = 'tasks/delete.html'
     success_message = gettext_lazy('Task deleted successfully!')
@@ -71,7 +71,7 @@ class FilterTasks(FilterSet):
                   'owned_tasks': gettext_lazy('owned tasks'), }
 
 
-class ListTasksView(FilterView, LoginUserMixin):
+class ListTasksView(LoginUserMixin, FilterView):
     model = Tasks
     template_name = 'tasks/list.html'
     object_name = 'tasks'
@@ -79,7 +79,7 @@ class ListTasksView(FilterView, LoginUserMixin):
                      'button_text': gettext_lazy('Show'), }
 
 
-class DetailTasksView(DetailView, LoginUserMixin):
+class DetailTasksView(LoginUserMixin, DetailView):
     model = Tasks
     template_name = 'tasks/show.html'
     object_name = 'task'

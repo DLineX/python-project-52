@@ -8,7 +8,7 @@ from .models import User
 from task_manager.mixins import (LoginUserMixin, AuthorizationMixin)
 
 
-class CreateUserView(CreateView, SuccessMessageMixin):
+class CreateUserView(SuccessMessageMixin, CreateView):
     form_class = UserForm
     template_name = 'form.html'
     success_url = reverse_lazy('login')
@@ -18,7 +18,7 @@ class CreateUserView(CreateView, SuccessMessageMixin):
 
 
 class UpdateUserView(LoginUserMixin, AuthorizationMixin,
-                     UpdateView, SuccessMessageMixin):
+                     SuccessMessageMixin, UpdateView):
     model = User
     form_class = UserForm
     template_name = 'form.html'
@@ -32,7 +32,7 @@ class UpdateUserView(LoginUserMixin, AuthorizationMixin,
 
 
 class DeleteUserView(LoginUserMixin, AuthorizationMixin,
-                     DeleteView, SuccessMessageMixin):
+                     SuccessMessageMixin, DeleteView):
     model = User
     template_name = 'users/delete.html'
     no_login_message = gettext_lazy('You are not logged in yet! Please log in')

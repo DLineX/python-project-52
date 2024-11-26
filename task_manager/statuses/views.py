@@ -8,7 +8,7 @@ from .models import Status
 from task_manager.mixins import (LoginUserMixin, ProtectionMixin)
 
 
-class CreateStatusView(CreateView, SuccessMessageMixin, LoginUserMixin):
+class CreateStatusView(SuccessMessageMixin, LoginUserMixin, CreateView):
     form_class = StatusCreateForm
     template_name = 'form.html'
     success_message = gettext_lazy('Status created successfully!')
@@ -17,7 +17,7 @@ class CreateStatusView(CreateView, SuccessMessageMixin, LoginUserMixin):
                      'button_text': gettext_lazy('Create'), }
 
 
-class UpdateStatusView(UpdateView, SuccessMessageMixin, LoginUserMixin):
+class UpdateStatusView(SuccessMessageMixin, LoginUserMixin, UpdateView):
     template_name = 'form.html'
     model = Status
     form_class = StatusCreateForm
@@ -28,7 +28,7 @@ class UpdateStatusView(UpdateView, SuccessMessageMixin, LoginUserMixin):
 
 
 class DeleteStatusView(
-    DeleteView, SuccessMessageMixin, LoginUserMixin, ProtectionMixin
+    SuccessMessageMixin, LoginUserMixin, ProtectionMixin, DeleteView
 ):
     model = Status
     template_name = 'statuses/delete.html'

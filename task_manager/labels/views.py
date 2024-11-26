@@ -9,7 +9,7 @@ from .models import Labels
 from task_manager.mixins import (LoginUserMixin, ProtectionMixin)
 
 
-class CreateLabelsView(CreateView, SuccessMessageMixin, LoginUserMixin):
+class CreateLabelsView(SuccessMessageMixin, LoginUserMixin, CreateView):
     form_class = LabelsForm
     template_name = 'form.html'
     success_message = gettext_lazy('Label created successfully!')
@@ -18,7 +18,7 @@ class CreateLabelsView(CreateView, SuccessMessageMixin, LoginUserMixin):
                      'button_text': gettext_lazy('Create'), }
 
 
-class UpdateLabelsView(UpdateView, SuccessMessageMixin, LoginUserMixin):
+class UpdateLabelsView(SuccessMessageMixin, LoginUserMixin, UpdateView):
     model = Labels
     form_class = LabelsForm
     success_message = gettext_lazy('Label updated successfully!')
@@ -27,8 +27,8 @@ class UpdateLabelsView(UpdateView, SuccessMessageMixin, LoginUserMixin):
                      'button_text': gettext_lazy('Submit changes'), }
 
 
-class DeleteLabelsView(DeleteView, SuccessMessageMixin,
-                       LoginUserMixin, ProtectionMixin):
+class DeleteLabelsView(SuccessMessageMixin, LoginUserMixin,
+                       ProtectionMixin, DeleteView):
     model = Labels
     template_name = 'labels/delete.html'
     success_message = gettext_lazy('Label deleted successfully!')
