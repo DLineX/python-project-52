@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 22:01+0300\n"
+"POT-Creation-Date: 2024-11-26 22:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -189,16 +189,16 @@ msgstr "Исполнитель"
 msgid "Only my tasks"
 msgstr "Только свои задачи"
 
-#: .\task_manager\tasks\views.py:83 .\task_manager\templates\nav.html:20
+#: .\task_manager\tasks\views.py:84 .\task_manager\templates\nav.html:20
 #: .\task_manager\templates\tasks\list.html:10
 msgid "Tasks"
 msgstr "Задачи"
 
-#: .\task_manager\tasks\views.py:84
+#: .\task_manager\tasks\views.py:85
 msgid "Show"
 msgstr "Показать"
 
-#: .\task_manager\tasks\views.py:91
+#: .\task_manager\tasks\views.py:92
 msgid "Task details"
 msgstr "Просмотр задачи"
 
@@ -233,12 +233,14 @@ msgstr "Дата создания"
 
 #: .\task_manager\templates\labels\list.html:25
 #: .\task_manager\templates\statuses\list.html:25
+#: .\task_manager\templates\tasks\list.html:43
 #: .\task_manager\templates\users\list.html:24
 msgid "Edit"
 msgstr "Изменить"
 
 #: .\task_manager\templates\labels\list.html:26
 #: .\task_manager\templates\statuses\list.html:26
+#: .\task_manager\templates\tasks\list.html:44
 #: .\task_manager\templates\tasks\show.html:50
 #: .\task_manager\templates\users\list.html:25
 msgid "Delete"
