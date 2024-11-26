@@ -55,8 +55,8 @@ class DeleteTasksView(LoginUserMixin, SuccessMessageMixin,
 class FilterTasks(FilterSet):
     status = ModelChoiceFilter(queryset=Status.objects.all(),
                                label=gettext_lazy('Status'), )
-    labels = ModelChoiceFilter(queryset=Labels.objects.all(),
-                               label=gettext_lazy('Label'), )
+    label = ModelChoiceFilter(queryset=Labels.objects.all(),
+                              label=gettext_lazy('Label'), )
     executor = ModelChoiceFilter(queryset=User.objects.all(),
                                  label=gettext_lazy('Executor'), )
     owned_tasks = BooleanFilter(label=gettext_lazy('Only my tasks'),
