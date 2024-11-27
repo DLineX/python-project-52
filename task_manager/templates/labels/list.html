@@ -22,8 +22,8 @@
             <td>{{label.name}}</td>
             <td>{{label.created_at}}</td>
             <td>
-                <a class="btn btn_info btn-sm mr-2 edit-button" href="{% url 'update_label' label.id %}">{% trans "Edit" %}</a>
-                <a class="btn btn-danger btn-sm delete-button" href="{% url 'delete_label' label.id %}">{% trans "Delete" %}</a>
+                <a class="btn btn_info btn-sm mr-2 edit-button" href="{% url 'update_label' pk=label.id %}">{% trans "Edit" %}</a>
+                <a class="btn btn-danger btn-sm delete-button" href="{% url 'delete_label' pk=label.id %}">{% trans "Delete" %}</a>
             </td>
         </tr>
         {% endfor %}

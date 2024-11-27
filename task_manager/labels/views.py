@@ -42,7 +42,7 @@ class DeleteLabelsView(LoginUserMixin, SuccessMessageMixin, DeleteView):
         'button_text': gettext_lazy('Yes, delete!'), }
 
     def post(self, request, *args, **kwargs):
-        labeled_tasks = Tasks.objects.filter(labels=kwargs)
+        labeled_tasks = Tasks.objects.filter(labels=kwargs['pk'])
         if labeled_tasks:
             messages.error(self.request, gettext_lazy('You can\'t delete this label, because it is used in tasks'))  # noqa: E501
             return redirect('labels_list')
