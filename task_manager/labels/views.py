@@ -1,12 +1,14 @@
-# from django.shortcuts import render
+from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from django.views.generic import (CreateView, UpdateView,
                                   DeleteView, ListView)
 from .forms import LabelsForm
 from .models import Labels
-from task_manager.mixins import (LoginUserMixin, AuthorMixin)
+from task_manager.tasks.models import Tasks
+from task_manager.mixins import (LoginUserMixin, ProtectionMixin)
 
 
 class CreateLabelsView(SuccessMessageMixin, LoginUserMixin, CreateView):
@@ -28,17 +30,24 @@ class UpdateLabelsView(SuccessMessageMixin, LoginUserMixin, UpdateView):
                      'button_text': gettext_lazy('Submit changes'), }
 
 
-class DeleteLabelsView(LoginUserMixin, SuccessMessageMixin, AuthorMixin,
+class DeleteLabelsView(LoginUserMixin, SuccessMessageMixin, ProtectionMixin,
                        DeleteView):
     model = Labels
     template_name = 'labels/delete.html'
     success_url = reverse_lazy('labels_list')
     success_message = gettext_lazy('Label deleted successfully!')
-    redirect_url = reverse_lazy('labels_list')
-    check_author_error_message = gettext_lazy('You can\'t delete this label, because it is used in tasks')  # noqa: E501
+    protected_url = reverse_lazy('labels_list')
+    protected_message = gettext_lazy('You can\'t delete this label, because it is used in tasks')  # noqa: E501
     extra_context = {'question': gettext_lazy(
         'Are you sure you want to delete this label?'),
         'button_text': gettext_lazy('Yes, delete!'), }
+
+    def post(self, request, *args, **kwargs):
+        labeled_tasks = Tasks.objects.filter(labels=kwargs)
+        if labeled_tasks:
+            messages.error(self.request, gettext_lazy('You can\'t delete this label, because it is used in tasks'))  # noqa: E501
+            return redirect('labels_list')
+        return super().post(request, *args, **kwargs)
 
 
 class ListLabelsView(LoginUserMixin, ListView):
