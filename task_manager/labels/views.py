@@ -6,7 +6,7 @@ from django.views.generic import (CreateView, UpdateView,
                                   DeleteView, ListView)
 from .forms import LabelsForm
 from .models import Labels
-from task_manager.mixins import (LoginUserMixin, ProtectionMixin)
+from task_manager.mixins import (LoginUserMixin, AuthorMixin)
 
 
 class CreateLabelsView(SuccessMessageMixin, LoginUserMixin, CreateView):
@@ -28,14 +28,14 @@ class UpdateLabelsView(SuccessMessageMixin, LoginUserMixin, UpdateView):
                      'button_text': gettext_lazy('Submit changes'), }
 
 
-class DeleteLabelsView(LoginUserMixin, SuccessMessageMixin, ProtectionMixin,
+class DeleteLabelsView(LoginUserMixin, SuccessMessageMixin, AuthorMixin,
                        DeleteView):
     model = Labels
     template_name = 'labels/delete.html'
-    protected_url = reverse_lazy('labels_list')
-    protected_message = gettext_lazy('You can\'t delete this label, because it is used in tasks')  # noqa: E501
     success_url = reverse_lazy('labels_list')
     success_message = gettext_lazy('Label deleted successfully!')
+    redirect_url = reverse_lazy('labels_list')
+    check_author_error_message = gettext_lazy('You can\'t delete this label, because it is used in tasks')  # noqa: E501
     extra_context = {'question': gettext_lazy(
         'Are you sure you want to delete this label?'),
         'button_text': gettext_lazy('Yes, delete!'), }
