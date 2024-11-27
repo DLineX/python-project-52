@@ -22,6 +22,7 @@ python-dotenv = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.1.1"
+coverage = "^7.6.8"
 faker = "^32.1.0"
 
 [build-system]
