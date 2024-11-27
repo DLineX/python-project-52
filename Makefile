@@ -10,3 +10,6 @@ start:
 	poetry run python manage.py runserver
 lint:
 	poetry run flake8 task_manager --exclude=migrations
+test-cov:
+	poetry run coverage report
+	poetry run coverage xml
