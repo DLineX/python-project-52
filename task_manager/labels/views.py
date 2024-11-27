@@ -28,15 +28,14 @@ class UpdateLabelsView(SuccessMessageMixin, LoginUserMixin, UpdateView):
                      'button_text': gettext_lazy('Submit changes'), }
 
 
-class DeleteLabelsView(SuccessMessageMixin, LoginUserMixin, ProtectionMixin,
+class DeleteLabelsView(LoginUserMixin, SuccessMessageMixin, ProtectionMixin,
                        DeleteView):
     model = Labels
     template_name = 'labels/delete.html'
-    success_message = gettext_lazy('Label deleted successfully!')
     success_url = reverse_lazy('labels_list')
-    protected_message = gettext_lazy(
-        'You can\'t delete this label, because it is used in tasks')
+    success_message = gettext_lazy('Label deleted successfully!')
     protected_url = reverse_lazy('labels_list')
+    protected_message = gettext_lazy('You can\'t delete this label, because it is used in tasks')  # noqa: E501
     extra_context = {'question': gettext_lazy(
         'Are you sure you want to delete this label?'),
         'button_text': gettext_lazy('Yes, delete!'), }
