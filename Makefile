@@ -4,7 +4,7 @@ install:
 migrate:
 	poetry run python manage.py makemigrations
 build:
-	./build.sh
+	make install
 	make migrate
 start:
 	poetry run python manage.py runserver
