@@ -1,3 +1,4 @@
+from django.contrib.messages import get_messages
 from django.test import (TestCase, Client)
 from django.urls import reverse_lazy
 from http import HTTPStatus
