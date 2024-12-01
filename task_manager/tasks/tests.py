@@ -50,6 +50,20 @@ class TestTasks(TestCase):
         with self.assertRaises(task.DoesNotExist):
             Tasks.objects.get(pk=task.id)
 
+    def test_protect_delete(self):
+        response = self.client.post(
+            reverse_lazy('delete_task', kwargs={'pk': self.another_task.pk})
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('tasks_list'))
+
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertIn(str(messages[0]), [
+            "you can't delete this task, you are not author",
+            'вы не можете удалить эту задачу, вы не являетесь автором'
+        ])
+
     def test_task(self):
         self.client.force_login(self.user_client)
         request = self.client.get(reverse_lazy('tasks_list'))
