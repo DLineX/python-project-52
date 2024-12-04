@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import (CreateTasksView, DeleteTasksView, DetailTasksView, ListTasksView, UpdateTasksView)  #noqa: E501
+from task_manager.tasks.views import (CreateTasksView, DeleteTasksView, DetailTasksView, ListTasksView, UpdateTasksView)  # noqa: E501
 
 urlpatterns = [
     path('', ListTasksView.as_view(), name='tasks_list'),

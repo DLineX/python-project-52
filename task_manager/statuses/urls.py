@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import (CreateStatusView, DeleteStatusView, ListStatusView, UpdateStatusView)  #noqa: E501
+from task_manager.statuses.views import (CreateStatusView, DeleteStatusView, ListStatusView, UpdateStatusView)  # noqa: E501
 
 urlpatterns = [
     path('', ListStatusView.as_view(), name='statuses_list'),

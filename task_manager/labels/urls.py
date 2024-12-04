@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import (CreateLabelsView, DeleteLabelsView, ListLabelsView, UpdateLabelsView)  #noqa: E501
+from task_manager.labels.views import (CreateLabelsView, DeleteLabelsView, ListLabelsView, UpdateLabelsView)  # noqa: E501
 
 urlpatterns = [
     path('', ListLabelsView.as_view(), name='labels_list'),
