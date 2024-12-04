@@ -1,7 +1,6 @@
 from django.urls import path
 
-from .views import (CreateStatusView, DeleteStatusView, ListStatusView,
-                    UpdateStatusView)
+from .views import (CreateStatusView, DeleteStatusView, ListStatusView, UpdateStatusView)  #noqa: E501
 
 urlpatterns = [
     path('', ListStatusView.as_view(), name='statuses_list'),
