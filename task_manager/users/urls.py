@@ -1,6 +1,11 @@
 from django.urls import path
 
-from task_manager.users.views import (CreateUserView, DeleteUserView, ListUsersView, UpdateUserView)  # noqa: E501
+from task_manager.users.views import (  # noqa: E501
+    CreateUserView,
+    DeleteUserView,
+    ListUsersView,
+    UpdateUserView,
+)
 
 urlpatterns = [
     path('', ListUsersView.as_view(), name='users_list'),
