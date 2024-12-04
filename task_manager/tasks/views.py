@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from django_filters import BooleanFilter, FilterSet, ModelChoiceFilter
 from django_filters.views import FilterView
+
 from task_manager.labels.models import Labels
 from task_manager.mixins import AuthorMixin, LoginUserMixin
 from task_manager.statuses.models import Status

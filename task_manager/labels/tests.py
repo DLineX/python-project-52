@@ -3,6 +3,7 @@ from http import HTTPStatus
 from django.test import Client, TestCase
 from django.urls import reverse_lazy
 from faker import Faker
+
 from task_manager.users.models import User
 
 from .models import Labels
