@@ -1,9 +1,11 @@
-from django.test import (TestCase, Client)
-from django.urls import reverse_lazy
 from http import HTTPStatus
-from .models import Labels
+
+from django.test import Client, TestCase
+from django.urls import reverse_lazy
 from faker import Faker
 from task_manager.users.models import User
+
+from .models import Labels
 
 
 class TestTasks(TestCase):

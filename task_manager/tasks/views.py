@@ -1,18 +1,18 @@
 # from django.shortcuts import render
-from django.utils.translation import gettext_lazy
-from django.urls import reverse_lazy
+from django import forms
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import (CreateView, UpdateView,
-                                  DeleteView, DetailView)
-from .forms import TasksCreateForm
-from .models import Tasks
-from task_manager.mixins import (LoginUserMixin, AuthorMixin)
-from django_filters import (FilterSet, ModelChoiceFilter, BooleanFilter)
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy
+from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
+from django_filters import BooleanFilter, FilterSet, ModelChoiceFilter
 from django_filters.views import FilterView
 from task_manager.labels.models import Labels
+from task_manager.mixins import AuthorMixin, LoginUserMixin
 from task_manager.statuses.models import Status
 from task_manager.users.models import User
-from django import forms
+
+from .forms import TasksCreateForm
+from .models import Tasks
 
 
 class CreateTasksView(LoginUserMixin, SuccessMessageMixin, CreateView):

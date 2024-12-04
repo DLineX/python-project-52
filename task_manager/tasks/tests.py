@@ -1,11 +1,13 @@
-from django.contrib.messages import get_messages
-from django.test import (TestCase, Client)
-from django.urls import reverse_lazy
 from http import HTTPStatus
-from .models import Tasks
+
+from django.contrib.messages import get_messages
+from django.test import Client, TestCase
+from django.urls import reverse_lazy
 from faker import Faker
-from task_manager.users.models import User
 from task_manager.statuses.models import Status
+from task_manager.users.models import User
+
+from .models import Tasks
 
 
 class TestTasks(TestCase):

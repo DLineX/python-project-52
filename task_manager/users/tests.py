@@ -1,8 +1,10 @@
-from django.test import (TestCase, Client)
-from django.urls import reverse_lazy
 from http import HTTPStatus
-from .models import User
+
+from django.test import Client, TestCase
+from django.urls import reverse_lazy
 from faker import Faker
+
+from .models import User
 
 
 class TestUsers(TestCase):

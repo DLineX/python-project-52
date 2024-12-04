@@ -1,11 +1,12 @@
 # from django.shortcuts import render
-from django.utils.translation import gettext_lazy
-from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import (CreateView, UpdateView, DeleteView, ListView)
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+from task_manager.mixins import LoginUserMixin, ProtectionMixin
+
 from .forms import StatusCreateForm
 from .models import Status
-from task_manager.mixins import (LoginUserMixin, ProtectionMixin)
 
 
 class CreateStatusView(SuccessMessageMixin, LoginUserMixin, CreateView):

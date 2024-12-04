@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.contrib.auth.views import (LoginView, LogoutView)
-from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.forms import AuthenticationForm
-from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy
 from django.views import View
 

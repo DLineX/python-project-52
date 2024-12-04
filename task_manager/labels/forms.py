@@ -1,6 +1,7 @@
 from django import forms
-from .models import Labels
 from django.utils.translation import gettext
+
+from .models import Labels
 
 
 class LabelsForm(forms.ModelForm):
