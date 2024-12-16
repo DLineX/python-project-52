@@ -4,9 +4,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/9dd930753f9b2b54ea1e/maintainability)](https://codeclimate.com/github/DLineX/python-project-52/maintainability)
 ### Task Manager:
 
-####(ENG) A simple and flexible task management web application
+#### (ENG) A simple and flexible task management web application
 
-####(RU) Простое веб-приложение для менеджмента задач
+#### (RU) Простое веб-приложение для менеджмента задач
 
 ### Описание:
 #### Task Manager – система управления задачами. Она позволяет ставить задачи, добавлять метки на них, назначать исполнителей и менять их статусы. Для работы с системой требуется регистрация и аутентификация
